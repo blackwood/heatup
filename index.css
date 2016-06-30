@@ -1,0 +1,236 @@
+#heatup {
+  display: block;
+  position: fixed;
+  width: auto;
+  right: 25px;
+  bottom: 25px;
+  font-size: 18px;
+  background: #f8f8f2;
+  width: 350px;
+  border-radius: 2px;
+  box-shadow: 0px 4px #e7e7db;
+  font-family: "Benton Sans Regular", Helvetica, Arial, sans-serif;
+}
+
+#heatup.initial {
+  display: none;
+}
+
+#heatup .inner {
+  margin: 20px;
+}
+
+#heatup .segment {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.segment.last {
+  float: right;
+}
+
+#heatup .people {
+  color: #231f20;
+  font-size: 40px;
+  margin-right: 5px;
+}
+
+#heatup .figure {
+  max-width: 115px;
+  font-size: 13px;
+}
+
+/**
+ * @see:animate.css -http://daneden.me/animate
+ */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, 150%, 0);
+  }
+}
+
+.slideOutDown {
+  animation-name: slideOutDown;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 150%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  animation-name: slideInUp;
+}
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  25% {
+    transform: scale3d(1.20, 1.20, 1.20);
+  }
+
+  50% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  75% {
+    transform: scale3d(1.20, 1.20, 1.20);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+}
+
+.circle-bolt {
+  height: 40px;
+  width: 40px;
+  background: #fff;
+  border-radius: 40px;
+  border: 1px solid #FFA300;
+  margin-right: 10px;
+  position: relative;
+  -webkit-animation: pulse 4s linear infinite;
+  -moz-animation: pulse 4s linear infinite;
+  animation: pulse 4s linear infinite;   
+}
+
+.bolt {
+  width: 15px;
+  height: 30px;
+  margin: 5px auto;
+  vertical-align: middle;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTVweCIgaGVpZ2h0PSIzMHB4IiB2aWV3Qm94PSIwIDAgMTUgMzAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+U2hhcGU8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE1NjguMDAwMDAwLCAtOTUyLjAwMDAwMCkiIGZpbGw9IiNGRkEzMDAiPiAgICAgICAgICAgIDxnIGlkPSJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTU1NS4wMDAwMDAsIDk0Ny4wMDAwMDApIj4gICAgICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwLTIiPiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkNhcGFfMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMuMzMzMzMzLCA1LjMzMzMzMykiPiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yLjg3NzY5MTIsMjkuMzA1MDc5OCBDMi43ODg0NzkwOCwyOS4zMDUwNzk4IDIuNjk5NDUxNjYsMjkuMjg5MDYzNCAyLjYxMzAxMDEsMjkuMjU0MzMxMyBDMi4yOTkwMTI5OSwyOS4xMjk5Nzk2IDIuMTIwNTg4NzQsMjguODA0MDczNiAyLjE5MDU5MTYzLDI4LjQ4MDY4NzEgTDQuNzExNDM0MzQsMTYuODEzOTM4NyBMMC44NTYxMDM4OTYsMTYuODEzOTM4NyBDMC41OTgyNTY4NTQsMTYuODEzOTM4NyAwLjM1OTYxOTA0OCwxNi42NzYyNjk5IDAuMjM3NTI5NTgyLDE2LjQ1NDU2MDMgQzAuMTE1NDQwMTE1LDE2LjIzMjY3MDggMC4xMjc4MTUyOTYsMTUuOTYyOTEyMSAwLjI3MDQwNjkyNiwxNS43NTMwNzk4IEwxMC43MjY1MTA4LDAuMzA4ODA5ODE2IEMxMC45MTE1ODQ0LDAuMDMzNDcyMzkyNiAxMS4yNzIzMTE3LC0wLjA3NTk0Mjc0MDMgMTEuNTg2NDkzNSwwLjA1NjMyNzE5ODQgQzExLjg5NzkwNDgsMC4xODQ2MzgwMzcgMTIuMDcwNjAzMiwwLjUxMTk4MzY0IDExLjk5ODAxNDQsMC44MzQxMTA0MjkgTDkuNDg4MjUzOTcsMTEuODMyMzEwOCBMMTMuMzM2NTY1NywxMS44MzIzMTA4IEMxMy41OTMxMTk4LDExLjgzMjMxMDggMTMuODI3NTA5NCwxMS45Njg1Mzk5IDEzLjk1MjM2OTQsMTIuMTg2NDcwMyBDMTQuMDc1NzUxOCwxMi40MDU2NjA1IDE0LjA2NjE0NzIsMTIuNjcxNDYwMSAxMy45MzAzODk2LDEyLjg4MjczMjEgTDMuNDcxNTE1MTUsMjguOTg3MDkyIEMzLjMzODUyODE0LDI5LjE5MDA4NTkgMy4xMTIyNjU1MSwyOS4zMDUwNzk4IDIuODc3NjkxMiwyOS4zMDUwNzk4IEwyLjg3NzY5MTIsMjkuMzA1MDc5OCBaIiBpZD0iU2hhcGUiPjwvcGF0aD4gICAgICAgICAgICAgICAgICAgIDwvZz4gICAgICAgICAgICAgICAgPC9nPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+}
+
+#close-target {
+  margin-top: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+Y2xvc2U8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE4NDYuMDAwMDAwLCAtOTU3LjAwMDAwMCkiIHN0cm9rZT0iI0NDQ0NDQyIgZmlsbD0iI0NDQ0NDQyI+ICAgICAgICAgICAgPGcgaWQ9IkNhcGFfMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTg0Ny4wMDAwMDAsIDk1OC4wMDAwMDApIj4gICAgICAgICAgICAgICAgPHBhdGggZD0iTTEwLjU5NzQ1MjYsOC45OTI5ODk0NyBMMTcuODY4NTA1MywxLjcyMjMxNTc5IEMxOC4wMjUwMTA1LDEuNTY1NjIxMDUgMTguMDI1MDEwNSwxLjMxMTcyNjMyIDE3Ljg2ODUwNTMsMS4xNTUwMzE1OCBMMTYuODMxNTE1OCwwLjExNzQ3MzY4NCBDMTYuNzU2Mjk0NywwLjA0MjQ0MjEwNTMgMTYuNjUzOTc4OSwwIDE2LjU0NzY4NDIsMCBDMTYuNDQxMiwwIDE2LjMzOTA3MzcsMC4wNDI0NDIxMDUzIDE2LjI2Mzg1MjYsMC4xMTc0NzM2ODQgTDguOTkyOTg5NDcsNy4zODgzMzY4NCBMMS43MjIxMjYzMiwwLjExNzQ3MzY4NCBDMS41NzE0OTQ3NCwtMC4wMzMxNTc4OTQ3IDEuMzA0OTA1MjYsLTAuMDMyOTY4NDIxMSAxLjE1NDY1MjYzLDAuMTE3NDczNjg0IEwwLjExNzg1MjYzMiwxLjE1NTAzMTU4IEMtMC4wMzg4NDIxMDUzLDEuMzExNzI2MzIgLTAuMDM4ODQyMTA1MywxLjU2NTYyMTA1IDAuMTE3ODUyNjMyLDEuNzIyMzE1NzkgTDcuMzg4NzE1NzksOC45OTI5ODk0NyBMMC4xMTc4NTI2MzIsMTYuMjYzNjYzMiBDLTAuMDM4ODQyMTA1MywxNi40MjAzNTc5IC0wLjAzODg0MjEwNTMsMTYuNjc0MjUyNiAwLjExNzg1MjYzMiwxNi44MzA5NDc0IEwxLjE1NDg0MjExLDE3Ljg2ODUwNTMgQzEuMjMwMDYzMTYsMTcuOTQzNTM2OCAxLjMzMjE4OTQ3LDE3Ljk4NTk3ODkgMS40Mzg2NzM2OCwxNy45ODU5Nzg5IEMxLjU0NTE1Nzg5LDE3Ljk4NTk3ODkgMS42NDcwOTQ3NCwxNy45NDM1MzY4IDEuNzIyMzE1NzksMTcuODY4NTA1MyBMOC45OTMxNzg5NSwxMC41OTc2NDIxIEwxNi4yNjQwNDIxLDE3Ljg2ODUwNTMgQzE2LjMzOTI2MzIsMTcuOTQzNTM2OCAxNi40NDE1Nzg5LDE3Ljk4NTk3ODkgMTYuNTQ3ODczNywxNy45ODU5Nzg5IEMxNi42NTQxNjg0LDE3Ljk4NTk3ODkgMTYuNzU2NDg0MiwxNy45NDM1MzY4IDE2LjgzMTcwNTMsMTcuODY4NTA1MyBMMTcuODY4Njk0NywxNi44MzA5NDc0IEMxOC4wMjUyLDE2LjY3NDI1MjYgMTguMDI1MiwxNi40MjAzNTc5IDE3Ljg2ODY5NDcsMTYuMjYzNjYzMiBMMTAuNTk3NDUyNiw4Ljk5Mjk4OTQ3IEwxMC41OTc0NTI2LDguOTkyOTg5NDcgWiIgaWQ9ImNsb3NlIj48L3BhdGg+ICAgICAgICAgICAgPC9nPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
+}
+
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position: relative;
+}
+.odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-default .odometer-digit {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position: relative;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  visibility: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+  text-align: left;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon {
+  display: block;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner, .odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
+  display: block;
+  -webkit-backface-visibility: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-default .odometer-digit .odometer-value {
+  display: block;
+  -webkit-transform: translateZ(0);
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-default .odometer-digit .odometer-value.odometer-last-value {
+  position: absolute;
+}
+.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+}
+.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 1.1em;
+}
+.odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
+  text-align: center;
+}

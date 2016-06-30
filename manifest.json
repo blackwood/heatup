@@ -7,19 +7,25 @@
   "content_scripts": [
     {
       "matches": [
-        "http://*/*",
-        "https://*/*"
+        "http://www.bostonglobe.com/*",
+        "https://www.bostonglobe.com/*"
       ],
-      "js": ["index.js"],
+      "js": ["odometer.min.js", "index.js"],
+      "css": ["index.css"],
       "run_at": "document_end"
     }
   ],
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
   "browser_action": {
     "default_title": ""
   },
   "permissions": [
     "https://*/*",
     "http://*/*",
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }
