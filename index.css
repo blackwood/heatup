@@ -10,6 +10,7 @@
   border-radius: 2px;
   box-shadow: 0px 4px #e7e7db;
   font-family: "Benton Sans Regular", Helvetica, Arial, sans-serif;
+  z-index: 1;
 }
 
 #heatup.initial {
