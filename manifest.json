@@ -1,0 +1,25 @@
+{
+  "name": "Ext",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "",
+  "homepage_url": "http://www.foo.bar",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["index.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_title": ""
+  },
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "tabs"
+  ]
+}
