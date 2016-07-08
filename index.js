@@ -16,9 +16,8 @@
 
   let init = () => {
     if (component) return
-  
-    let instance = document.createElement('div')
 
+    let instance = document.createElement('div')
     instance.id = 'heatup'
     instance.className = 'animated initial'
     instance.innerHTML = `
@@ -37,8 +36,7 @@
 
     component = document.body.appendChild(instance)
     
-    document.getElementById('close-target')
-      .addEventListener('click', dismiss)
+    document.getElementById('close-target').addEventListener('click', dismiss)
 
     od = new Odometer({
       el: document.getElementById('people-target'),
@@ -47,8 +45,8 @@
   }
 
   let render = function({ pages }) {
-    let match = pages.map((p) => {
-      return { 'path': p.path, 'people': p.stats.people }
+    let match = pages.map((p) => { 
+      return { 'path': p.path, 'people': p.stats.people } 
     })
     .filter((p) => {
       return p.path !== 'bostonglobe.com/' && location.href.indexOf(p.path) > -1
@@ -58,23 +56,20 @@
     if (match) od.update(match.people)
   }
 
-  chrome.storage.sync.get('apikey', function main({ apikey }) {
-    if (typeof apikey !== 'string' || apikey.length === 0) {
+  chrome.storage.sync.get('apikey', function main({ apikey = null }) {
+    if (apikey && apikey.length !== 32) {
       console.error(`Not a valid apikey. See extension settings.`)
       return
     }
 
     init()
 
-    const query = {
-      apikey,
-      'host': 'bostonglobe.com'
-    }
+    const query = { apikey, 'host': 'bostonglobe.com' }
 
     setTimeout(function fetchData() {
       if (DISMISSED) return
       fetch(`http://api.chartbeat.com/live/toppages/v3/?${serialize(query)}`)
-        .then(r => r.json())
+        .then(response => response.json())
         .then(data => render(data))
         .then(success => {
           setTimeout(fetchData, success ? (DEV ? 100000 : 6000) : 20000)
