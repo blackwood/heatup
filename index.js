@@ -1,7 +1,6 @@
 'use strict'
 
 ;(function() {
-
   let DEV = false,
       DISMISSED = false,
       component,
@@ -12,7 +11,8 @@
     DISMISSED = true
   }
 
-  let serialize = (obj) => Object.keys(obj).map(k => k + '=' + encodeURIComponent(obj[k])).join('&')
+  let serialize = (obj) => Object.keys(obj)
+    .map(k => k + '=' + encodeURIComponent(obj[k])).join('&')
 
   let init = () => {
     if (component) return
@@ -52,17 +52,10 @@
     })
     .filter((p) => {
       return p.path !== 'bostonglobe.com/' && location.href.indexOf(p.path) > -1
-    })
+    })[0] || false
     
-    if (match.length > 0) {
-      component.classList = 'animated slideInUp'
-      od.update(match[0].people)
-      return true
-    }
-    else {
-      component.classList = 'initial'
-      return false
-    }
+    component.classList = match ? 'animated slideInUp' : 'initial'
+    if (match) od.update(match.people)
   }
 
   chrome.storage.sync.get('apikey', function main({ apikey }) {
@@ -78,7 +71,7 @@
       'host': 'bostonglobe.com'
     }
 
-    let fetchData = () => {
+    setTimeout(function fetchData() {
       if (DISMISSED) return
       fetch(`http://api.chartbeat.com/live/toppages/v3/?${serialize(query)}`)
         .then(r => r.json())
@@ -86,11 +79,7 @@
         .then(success => {
           setTimeout(fetchData, success ? (DEV ? 100000 : 6000) : 20000)
         })
-        .catch(e => {
-          console.warn(`Something went wrong with the chartbeat API request.`)
-        })
-    }
-
-    setTimeout(fetchData, 5500)
+        .catch(e => console.warn(`Something's wrong with the Chartbeat API.`))
+    }, 5500)
   })
 })()
